@@ -1,0 +1,155 @@
+
+
+  <style>
+    #toggled {
+      width: 100%;
+      position: fixed;
+      top: 55px;
+      z-index: 1;
+      transform: translateY(-2000px);
+    }
+    #toggled.active {
+      transform: translateY(0);
+    }
+    #naved{
+      position: fixed;
+      width: 100%;
+      z-index: 1;
+    }
+    a{
+      color: white;
+      text-decoration: none
+    }
+  </style>
+  <script>
+    function toggleClicked(){
+      document.querySelector("#toggled").classList.toggle("active")
+    }
+  </script>
+  <nav id="naved" class=" navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Shoe-Shopping</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span onclick="toggleClicked()" class="navbar-toggler-icon active"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/women">Women <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/men">Men</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/kids">Kids</a>
+        </li>
+        <li class="nav-item">
+          <form class="form-inline my-2 my-lg-0" method="POST" action="/search">
+            <input style="margin-0;width:300px;" class="form-control mr-sm-2" name="search" style="width: 600px;"
+              placeholder="Search" aria-label="Search" list="datalist1">
+            <datalist id="datalist1">
+              <option value="Adidas"></option>
+              <option value="ASICS"></option>
+              <option value="Bata"></option>
+              <option value="Columbus"></option>
+              <option value="Fila"></option>
+              <option value="Kering (PUMA)"></option>
+              <option value="New Balance"></option>
+              <option value="Nike"></option>
+              <option value="Paragon"></option>
+              <option value="Skechers"></option>
+            </datalist>
+            <input class="btn btn-outline-primary my-2 my-sm-0" type="submit" value="Search" />
+          </form>
+        </li>
+      </ul>
+      {{#if user}}
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item cart-icon">
+          <a style="text-decoration: none; cursor: pointer;" class="text-light" href="/cart"><i
+              class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i> &nbsp;&nbsp;{{cartCount}} items</a>
+        </li>
+      </ul>
+      <form method="POST" action="/logout?_method=DELETE" class="form-inline my-2 my-lg-0 ml-5 pl-5">
+        <input type="submit" class="btn btn-outline-primary my-2 my-sm-0" value="Logout" />
+      </form>
+
+      {{else}}
+      <ul class="navbar-nav mrl-auto">
+        <li class="nav-item ">
+          <a class="nav-link text-light" href="/register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="/login">LogIn</a>
+        </li>
+      </ul>
+      {{/if}}
+    </div>
+  </nav>
+  <div id="toggled" class="bg-dark">
+    <div class="row">
+      <div class="col text-center">
+
+
+        <a class="nav-link" href="/women">Women <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/men">Men</a>
+        <a class="nav-link" href="/kids">Kids</a>
+          <div class="mx-auto" style="width: 200px;">
+        <form class="form-inline my-2 my-lg-0" method="POST" action="/search">
+          <input style="margin-0; width:200px" class="form-control mr-sm-2" name="search"
+            placeholder="Search" aria-label="Search" list="datalist1">
+          <datalist id="datalist1">
+            <option value="Adidas"></option>
+            <option value="ASICS"></option>
+            <option value="Bata"></option>
+            <option value="Columbus"></option>
+            <option value="Fila"></option>
+            <option value="Kering (PUMA)"></option>
+            <option value="New Balance"></option>
+            <option value="Nike"></option>
+            <option value="Paragon"></option>
+            <option value="Skechers"></option>
+          </datalist>
+          <div class="mx-auto" style="width: 100px;">
+          <input class="btn btn-outline-primary my-2 my-sm-0" type="submit" value="Search" />
+          </div>
+        </form>
+        </div>
+        {{#if user}}
+        <ul class="navbar-nav mt-2 ml-auto">
+          <li class="nav-item cart-icon">
+            <a style="text-decoration: none; cursor: pointer;" class="text-light" href="/cart"><i
+                class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i> &nbsp;&nbsp;{{cartCount}} items</a>
+          </li>
+        </ul>
+        <div class="mx-auto" style="width: 80px;">
+        <form method="POST" action="/logout?_method=DELETE" class="form-inline my-2 my-lg-0 ">
+          <input type="submit" class=" mt-2 mb-5 btn btn-outline-primary my-2 my-sm-0" value="Logout" />
+        </form>
+        </div>
+
+        {{else}}
+        <a class="mt-2 nav-link text-light" href="/register">Register</a>
+        <a class="mt-2 mb-5 nav-link text-light" href="/login">LogIn</a>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

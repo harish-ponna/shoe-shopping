@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>{{ title }}</title>
+</head>
+<style>
+  body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../shoes.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 50% 50%;
+    background-attachment: fixed;
+  }
+
+  @media all and (max-width:890px) {
+    body {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../bg.jpg");
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-position: 50% 50%;
+      background-attachment: fixed;
+    }
+  }
+</style>
+<body>
+  {{>nav}}
+  {{{ body }}}
+</body>
+
+</html>
